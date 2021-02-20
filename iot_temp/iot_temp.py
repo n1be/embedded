@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-""""Read the current temperature from a w1 device and feed the value to
-io.adafruit (AIO).  This runs under Raspberry Pi OS.
+""""Monitor the current temperature via a w1 device and feed the values to
+io.adafruit (AIO).  This runs under the Raspberry Pi (Linux) OS.
 
 Assumptions:
     *  Environment variables IO_USERNAME, IO_KEY contain AIO credentials.
@@ -18,8 +18,12 @@ except ImportError:
 
 
 # read some parameters from the environment
-usernm = os.environ["IO_USERNAME"]
-passwd = os.environ["IO_KEY"]
+try:
+    usernm = os.environ["IO_USERNAME"]
+    passwd = os.environ["IO_KEY"]
+except KeyError:
+    sys.exit('Missing AIO Credentials: set environment variables "IO_KEY", "IO_USERNAME"')
+
 # publish to a feed called: <hostname>-temp
 my_feed = "{}-temp".format(socket.gethostname())
 

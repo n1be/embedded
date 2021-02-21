@@ -1,5 +1,5 @@
 # iot_temp
-This program monitors ambient temperature with a 1-wire sensor and reports the value to a *feed* on [Adafruit IO (AIO).](https://io.adafruit.com/)
+This program monitors ambient temperature with a 1-wire sensor and reports the value to a *feed* on [Adafruit IO.](https://io.adafruit.com/)
 
 ## Hardware
 - **Controller:** Raspberry Pi (any model).  This application uses minimal resources. Even a Pi-Zero can cuncurrently run a web cam, etc.
@@ -16,7 +16,7 @@ The default for the 1-wire driver, GPIO 4, is used by this circuit.  The circuit
     dtoverlay=w1-gpio
 
 ## Security Credentials
-AIO requires two strings, _username_ and _key_, before you can connect.  These strings are not in the program source.  They must be provided via these environment variables, *IO_USERNAME* and *IO_KEY*.  Commands similar to this can be used to set those variables:
+Adafruit IO (aio) requires two strings, _username_ and _key_, before you can connect.  These strings are not in the program source.  They must be provided via these environment variables, *IO_USERNAME* and *IO_KEY*.  Commands similar to this can be used to set those variables before running iot_temp:
 
     export IO_KEY="your_aio_key"
     export IO_USERNAME="your_aio_username"

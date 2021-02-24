@@ -11,7 +11,7 @@ The original schematic is in file `schematic.fzz`.  This has been exported from 
 This design comes from [Adafruit's Raspberry Pi Lesson 11. DS18B20 Temperature Sensing](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-11-ds18b20-temperature-sensing)
 
 ## 1-wire Device Driver
-The default for the 1-wire driver, GPIO 4, is used by this circuit.  The circuit uses an external through-hole 4.7k pullup resistor.  (This resistor is supplied with the sensor.)  Therefore `/boot/config.txt` includes the following line to load the needed driver.  (See `/boot/overlays/README` for variations.)
+The default for the 1-wire driver, GPIO 4, is used by this circuit.  The circuit uses an external through-hole 4.7k pullup resistor.  (This resistor is supplied with the sensor.)  Therefore `/boot/config.txt` includes the following line to load the needed driver.  (See `/boot/overlays/README` on the Pi for variations like using a different GPIO or having the Pi provide pullup.)
 
     dtoverlay=w1-gpio
 

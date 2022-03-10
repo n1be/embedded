@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-""""Monitor the current temperature via a w1 device and feed the values to
+"""Monitor the current temperature via a w1 device and feed the values to
 io.adafruit (AIO).  This runs under the Raspberry Pi (Linux) OS.
 
 Assumptions:
@@ -64,7 +64,7 @@ def read_temp():
             temp_c = float(temp_string) / 1000.0
             temp_f = temp_c * 9.0 / 5.0 + 32.0
             return temp_c, temp_f
-    # by default, return None if "YES", "t=" was not in the string
+    # return None if control reaches here
 
 
 def report_temps():

@@ -1,5 +1,6 @@
 # iot_temp
-This program monitors ambient temperature with a 1-wire sensor and reports the value to a *feed* on [Adafruit IO.](https://io.adafruit.com/)
+This program monitors ambient temperature with a 1-wire sensor and reports the value to a *feed* on [Adafruit IO.](https://io.adafruit.com/)  Feeds provide the data that can be displayed on an AIO Dashboard.  For example, this image shows two temperature feeds on a dashboard with guages showing the current reading and graphs showing history of readings:
+![dashboard](dashboard.png)
 
 ## Hardware
 - **Controller:** Raspberry Pi (any model).  This application uses minimal resources. Even a Pi-Zero can cuncurrently run a web cam, etc.
@@ -22,9 +23,9 @@ Adafruit IO (aio) requires two strings, _username_ and _key_, before you can con
     export IO_USERNAME="your_aio_username"
 
 ## Program Activation
-This program is intended to be started once and it runs continuously monitoring temperature.  The *crontab* of the default user, usually "pi", is used to start the monitor.  There is no automatic restart if the program aborts.  This is easily managed by running the program under systemd instead of cron.
+This program is intended to be started once and it runs continuously monitoring temperature.  The *crontab* of the default user, usually "pi", is used to start the monitor.  There is no automatic restart if the program aborts.  This could be managed by running the program under systemd instead of cron.
 
-If there is a file, *secrets*, that sets the environment variables needed for security credentials, this crontab line can be used to start the program automatically when the pi boots:
+If there is a file, *secrets*, with commands like those above to set the environment variables needed for security credentials, this crontab line can be used to start the program automatically when the pi boots:
 
     @reboot      . ./secrets && ./iot_temp.py
 
